@@ -85,3 +85,16 @@ console.log('\n======= Exercise 10 ========')
 const {address:street} = person
 
 console.log(street)
+
+// Exercise 11
+console.log('\n======= Exercise 11 ========')
+const increment = (() => {
+    let counter = 0;
+    return ()=> {
+        counter += 1
+        return counter
+    }
+})()
+console.log(increment())
+console.log(increment())
+console.log(increment())
