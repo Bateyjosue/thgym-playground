@@ -1,4 +1,3 @@
-import "./styles.css";
 
 const companies = [
   { name: "Company One", category: "Finance", start: 1981, end: 2004 },
@@ -20,3 +19,10 @@ const person = {
     street: "Lalaland 12"
   }
 };
+
+// Exersise 1
+console.log('=======Exercise 1========')
+
+companies.forEach((el) => {
+    console.log(el.name)
+})
