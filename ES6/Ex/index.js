@@ -98,3 +98,10 @@ const increment = (() => {
 console.log(increment())
 console.log(increment())
 console.log(increment())
+
+// Exercise 12
+console.log('\n======= Exercise 12 ========')
+const queryParameter = () => {
+
+
+}
