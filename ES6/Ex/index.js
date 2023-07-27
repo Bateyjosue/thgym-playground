@@ -26,3 +26,8 @@ console.log('=======Exercise 1========')
 companies.forEach((el) => {
     console.log(el.name)
 })
+
+// Exercise 2
+console.log('\n=======Exercise 2========')
+
+companies.filter(el => el.start >= 1986).forEach(el => console.log(el.name))
