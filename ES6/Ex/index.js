@@ -66,3 +66,9 @@ function printName(){
 let company = {...a, printName}
 console.log(company)
 console.log(company.printName())
+
+// Exercise 8
+console.log('\n=======Exercise 8========')
+const restSum = (...args) => args.reduce((acc, cur) => acc + cur)
+
+console.log(restSum(1,1,1,1,1))
