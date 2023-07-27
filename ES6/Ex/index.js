@@ -47,3 +47,10 @@ let sortedAge = ages.sort((a, b) => b - a)
 sortedAge.forEach(el => console.log(el))
 
 console.log(typeof sortedAge)
+
+// Exercise 6
+console.log('\n=======Exercise 6========')
+
+let sumOfAges = ages.reduce((acc, cur) => acc + cur)
+
+console.log(sumOfAges)
