@@ -35,4 +35,5 @@ Exercise 9: In index.js make a function that takes an unkown number of arguments
 Exercise 10:index.js distructure the property street in a variable named street from the object person
 
 Exercise 11: In index.js write a function that everytime you call it, it returns a number that increments starting from 0
+
 Exercise 12: In index.js create a function that distructures the query parameters of a url and adds them in an object as key value pairs and then returns the object

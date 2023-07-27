@@ -72,3 +72,16 @@ console.log('\n=======Exercise 8========')
 const restSum = (...args) => args.reduce((acc, cur) => acc + cur)
 
 console.log(restSum(1,1,1,1,1))
+
+// Exercise 9
+console.log('\n======= Exercise 9 ========')
+
+const restArray = (...args) => [...args];
+console.log(restArray(1,1,1,1,1))
+
+// Exercise 10
+console.log('\n======= Exercise 10 ========')
+
+const {address:street} = person
+
+console.log(street)
