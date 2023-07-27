@@ -31,3 +31,11 @@ companies.forEach((el) => {
 console.log('\n=======Exercise 2========')
 
 companies.filter(el => el.start >= 1986).forEach(el => console.log(el.name))
+
+// Exercise 3
+console.log('\n=======Exercise 3========')
+
+// Exercise 4
+console.log('\n=======Exercise 4========')
+
+companies.sort((a, b) => a.end - b.end).forEach(el => console.log(el))
