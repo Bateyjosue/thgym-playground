@@ -38,12 +38,13 @@ console.log('\n=======Exercise 3========')
 // Exercise 4
 console.log('\n=======Exercise 4========')
 
-companies.sort((a, b) => a.end - b.end).forEach(el => console.log(el))
+let sortedEnd = companies.toSorted((a, b) => a.end - b.end)
+sortedEnd.forEach(el => console.log(el))
 
 // Exercise 5
 console.log('\n=======Exercise 5========')
 
-let sortedAge = ages.sort((a, b) => b - a)
+let sortedAge = ages.toSorted((a, b) => b - a)
 sortedAge.forEach(el => console.log(el))
 
 console.log(typeof sortedAge)
@@ -54,3 +55,14 @@ console.log('\n=======Exercise 6========')
 let sumOfAges = ages.reduce((acc, cur) => acc + cur)
 
 console.log(sumOfAges)
+
+// Exercise 7
+console.log('\n=======Exercise 7========')
+
+const [a , ...otherCampanies] = companies
+function printName(){
+    return this.name
+}
+let company = {...a, printName}
+console.log(company)
+console.log(company.printName())
