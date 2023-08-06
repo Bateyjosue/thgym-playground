@@ -11,18 +11,16 @@ let numDic = {
     9: 'Nine',
 }
 
-const handler = {
+numDic = new Proxy(numDic, {
     get(target, number){
         return target[number]? target[number]: number
     }
-}
+});
 
-const str = '123'
-
-const agent = new Proxy(numDic, handler);
+const str = 'Hola34'
 let strNum = ''
 for(string of [...str]){
-strNum += `${agent[string]} `
+    strNum += `${numDic[string]} `
 }
 
 console.log(strNum)
