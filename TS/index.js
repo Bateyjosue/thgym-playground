@@ -11,7 +11,14 @@ var programmer = ['Junior', 24, true];
 names.push('Victoire'); // append 'Victoire' at the end of names
 age.push(20);
 isProgrammer.push(true);
-// programmer.push(names) //Throw an error
-// programmer[0] = 12 //Throw an error
-// programmer[1] = 'John' //Throw an error
-console.log(names, age, programmer);
+var person1 = {
+    name: names[0],
+    age: age[0],
+    isProgrammer: isProgrammer[0]
+};
+// ERROR property 'isProgrammer' is missing
+// let person2 : Progammer = {
+//     name: names[0],
+//     age: age[0],
+// }
+console.log(person1);

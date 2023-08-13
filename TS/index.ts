@@ -18,4 +18,26 @@ isProgrammer.push(true)
 // programmer[0] = 12 //Throw an error
 // programmer[1] = 'John' //Throw an error
 
-console.log(names, age, programmer)
+/*
+    Object
+*/
+
+interface Progammer {
+    name: string;
+    age: number;
+    isProgrammer: boolean
+}
+
+let person1 : Progammer = {
+    name: names[0],
+    age: age[0],
+    isProgrammer: isProgrammer[0]
+}
+
+// ERROR property 'isProgrammer' is missing
+// let person2 : Progammer = {
+//     name: names[0],
+//     age: age[0],
+// }
+
+console.log(person1)
