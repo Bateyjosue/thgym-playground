@@ -64,5 +64,19 @@ function sum(a: number, b: number): number {
 let product = (a: number, b: number):number => a * b;
 
 
-console.log(product(1, '2')) // Thow an error
-console.log(product(1, 2))
+// console.log(product(1, '2')) // Thow an error
+// console.log(product(1, 2))
+
+// Function with optional parameters
+
+const sumOptional:Function = (a:number, b:number, c?:(number|string)):number|string => {
+    console.log(typeof c)
+    if(typeof c === 'string' || typeof c == undefined){
+        return `Here C is optional so the sum is ${a + b}`
+    }else {
+        return a + b + c;
+    }
+}
+
+console.log(sumOptional(1,2,3))
+console.log(sumOptional(1,2, ''))

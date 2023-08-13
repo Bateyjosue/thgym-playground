@@ -36,5 +36,17 @@ function sum(a, b) {
 // console.log(sum(1, 2))
 // Arrow Functions
 var product = function (a, b) { return a * b; };
-console.log(product(1, '2')); // Thow an error
-console.log(product(1, 2));
+// console.log(product(1, '2')) // Thow an error
+// console.log(product(1, 2))
+// Function with optional parameters
+var sumOptional = function (a, b, c) {
+    console.log(typeof c);
+    if (typeof c === 'string' || typeof c == undefined) {
+        return "Here C is optional so the sum is ".concat(a + b);
+    }
+    else {
+        return a + b + c;
+    }
+};
+console.log(sumOptional(1, 2, 3));
+console.log(sumOptional(1, 2, ''));
