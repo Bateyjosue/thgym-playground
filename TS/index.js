@@ -21,4 +21,20 @@ var person1 = {
 //     name: names[0],
 //     age: age[0],
 // }
-console.log(person1);
+/*
+    Function
+*/
+//Regular function
+function sum(a, b) {
+    return a + b;
+}
+//Throw an error because the returned value must be a number
+// function sum(a: number, b: number): number {
+//     return (a + b).toString();
+// }
+// console.log(sum(1, '2')) // Thow an error
+// console.log(sum(1, 2))
+// Arrow Functions
+var product = function (a, b) { return a * b; };
+console.log(product(1, '2')); // Thow an error
+console.log(product(1, 2));

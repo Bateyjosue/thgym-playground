@@ -40,4 +40,29 @@ let person1 : Progammer = {
 //     age: age[0],
 // }
 
-console.log(person1)
+/*
+    Function
+*/
+
+//Regular function
+
+function sum(a: number, b: number): number {
+    return a + b;
+}
+
+
+//Throw an error because the returned value must be a number
+// function sum(a: number, b: number): number {
+//     return (a + b).toString();
+// }
+
+// console.log(sum(1, '2')) // Thow an error
+// console.log(sum(1, 2))
+
+// Arrow Functions
+
+let product = (a: number, b: number):number => a * b;
+
+
+console.log(product(1, '2')) // Thow an error
+console.log(product(1, 2))
