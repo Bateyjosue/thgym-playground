@@ -7,8 +7,8 @@ const returningUserDisplay = document.querySelector('#returning-user') as HTMLEl
 const userNameDisplay = document.querySelector('#user') as HTMLElement
 const footer = document.querySelector('footer') as HTMLElement
 
-function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
-    const iconDisplay = isLoyalty ? '⭐' : ''
+function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
+    const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
 }
 
@@ -19,29 +19,36 @@ function populateUser(isReturning : boolean, userName: string ) {
     userNameDisplay.innerHTML = userName
 }
 
+enum LoyaltyUser {
+    GOLD_USER = 'GOLD_USER',
+    SILVER_USER = 'SILVER_USER',
+    BRONZE_USER = 'BRONZE_USER',
+}
+
+
 // Reviews
 const reviews : { 
     name: string; 
     stars: number; 
-    loyaltyUser: boolean; 
+    loyaltyUser: LoyaltyUser; 
     date: string
     }[] = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '27-03-2021'
     },
 ]
@@ -140,4 +147,4 @@ function showProperties(properties:{image: string, title:string}[]){
 showProperties(properties)
 
 let currentLocation :[string, string, number] = ['Kigal-rw', '11:35AM', 26]
-footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}`
+footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}℃`

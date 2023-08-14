@@ -8,7 +8,7 @@ const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const footer = document.querySelector('footer');
 function showReviewTotal(value, reviewer, isLoyalty) {
-    const iconDisplay = isLoyalty ? '⭐' : '';
+    const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : '';
     reviewTotalDisplay.innerHTML = 'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 function populateUser(isReturning, userName) {
@@ -17,24 +17,30 @@ function populateUser(isReturning, userName) {
     }
     userNameDisplay.innerHTML = userName;
 }
+var LoyaltyUser;
+(function (LoyaltyUser) {
+    LoyaltyUser["GOLD_USER"] = "GOLD_USER";
+    LoyaltyUser["SILVER_USER"] = "SILVER_USER";
+    LoyaltyUser["BRONZE_USER"] = "BRONZE_USER";
+})(LoyaltyUser || (LoyaltyUser = {}));
 // Reviews
 const reviews = [
     {
         name: 'Sheia',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
         date: '01-04-2021'
     },
     {
         name: 'Andrzej',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '28-03-2021'
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
         date: '27-03-2021'
     },
 ];
@@ -106,4 +112,4 @@ function showProperties(properties) {
 }
 showProperties(properties);
 let currentLocation = ['Kigal-rw', '11:35AM', 26];
-footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}`;
+footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}℃`;
