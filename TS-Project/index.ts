@@ -1,11 +1,22 @@
-// Add the properties to the Dashboard
-// This is a continuation of the Challenge, in which you are asked to add
-// the 3 properties image and title to the dashboard based on the 
-// properties array
+
+// import { Permissions, LoyaltyUser } from "./enums"
+
+enum LoyaltyUser {
+    GOLD_USER = 'GOLD_USER',
+    SILVER_USER = 'SILVER_USER',
+    BRONZE_USER = 'BRONZE_USER',
+}
+
+ enum Permissions {
+        ADMIN = 'ADMIN',
+        READ_ONLY = 'READ_ONLY'
+}
+
 const reviewTotalDisplay = document.querySelector('#reviews') as HTMLElement
 const returningUserDisplay = document.querySelector('#returning-user') as HTMLElement
 const userNameDisplay = document.querySelector('#user') as HTMLElement
 const footer = document.querySelector('footer') as HTMLElement
+let isLoggedIn : boolean 
 
 function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
     const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
@@ -19,14 +30,6 @@ function populateUser(isReturning : boolean, userName: string ) {
     userNameDisplay.innerHTML = userName
 }
 
-enum LoyaltyUser {
-    GOLD_USER = 'GOLD_USER',
-    SILVER_USER = 'SILVER_USER',
-    BRONZE_USER = 'BRONZE_USER',
-}
-
-
-// Reviews
 const reviews : { 
     name: string; 
     stars: number; 
@@ -57,12 +60,14 @@ const reviews : {
 const you: {
     firstName: string;
     lastName: string;
+    permissions: Permissions;
     isReturning: boolean;
     age: number;
     stayedAt: string[]
 } = {
     firstName: 'Josh',
     lastName: 'Batey',
+    permissions: null,
     isReturning: true,
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow']
@@ -127,24 +132,38 @@ const properties : {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
 
 populateUser(you.isReturning, you.firstName)
+let authorityStatus: any
+isLoggedIn = true
 
+function showDetails(authorityStatus: boolean|Permissions, Element: Element, price:number) {
+    if(authorityStatus) {
+        const priceDisplay = document.createElement('div')
+        priceDisplay.innerHTML = `${price.toString()} /night`
+        Element.appendChild(priceDisplay)
+    }
+}
 
-function showProperties(properties:{image: string, title:string}[]){
+function showProperties(properties:{image : string, title : string, price: number}[], authorityStatus: boolean|Permissions){
     const article = document.createElement('article')
     const property = document.querySelector('.properties') as Element;
     properties.map(el => {
-        const {image, title } = el;
+        const {image, title, price } = el;
         property.innerHTML += `
         <article class="card">
             <h5>${title}</h5>
             <img src=${image} />
+            ${authorityStatus ? `${price}/night ` : ''} 
         </article>
         `
     });
     
 }
 
-showProperties(properties)
+
+showProperties(properties, you.permissions)
+
+
+
 
 let currentLocation :[string, string, number] = ['Kigal-rw', '11:35AM', 26]
 footer.innerHTML = `${currentLocation[0]} | ${currentLocation[1]} | ${currentLocation[2]}℃`
