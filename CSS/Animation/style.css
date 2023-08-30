@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  body {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .quotes {
+    width: 70%;
+    text-align: center;
+    line-height: 2rem;
+  }
+  
+  .quotes p{
+    color: gray;
+  }
+  .spinner {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 5px ;
+      border-bottom: blue solid;
+        border-left: gray solid;
+        border-right: gray solid;
+        border-top: gray solid;
+        animation: loading-spinner .7s linear infinite  forwards ;
+    
+  }
+  
+ 
