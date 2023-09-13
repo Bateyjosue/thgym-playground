@@ -12,5 +12,3 @@ const baseUrl = "https://handlers.education.launchcode.org/static/weather.json";
     })
     .catch(err => weather.innerHTML = err)
 })(baseUrl)
-
-// weather.innerHTML = 
