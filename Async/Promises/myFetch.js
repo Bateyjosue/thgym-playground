@@ -15,10 +15,13 @@ function myFetch(url){
         xhr.onerror = () => {
             reject(Error('Network error'))
         }
-        return xhr.send()
+        xhr.send()
     })
 }
 
-myFetch('[`https://jsonplaceholder.typicode.com/users')
+myFetch('https://jsonplaceholder.typicode.com/users')
+// parse to json the string returned
+.then(res => JSON.parse(res))
 .then(data => console.log(data))
+
 .catch(error => console.log('Error:', error));
