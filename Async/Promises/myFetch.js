@@ -1,6 +1,6 @@
 let XMLHttpRequest = require('xhr2');
 
-function myFetch(url){
+export function myFetch(url){
 	//... your code here
 	return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
