@@ -9,3 +9,16 @@ console.log(repeatEvery(()=> {
     }
     console.log('Josh')
 },1000))
+
+let baseURL =`https://vpic.nhtsa.dot.gov/api/vehicles/GetAllManufacturers?format=json&page=2`
+async function fetchVehicles(url) {
+    try {
+        let response = await fetch(url)
+        let data = await response.json()
+         console.log(data.Results.filter(vehicle => vehicle.Country == 'UNITED STATES ()'))
+    }
+    catch(error) {
+        console.log(error);
+    }
+}
+
