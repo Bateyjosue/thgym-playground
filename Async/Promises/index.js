@@ -23,3 +23,18 @@ async function fetchVehicles(url) {
 }
 
 fetchVehicles(baseURL)
+async function performFastAsync(url, timer){
+    let timerID = 0
+    let response = await fetch(url)
+    return new Promise((res, rej) => {
+        timerID = setTimeout(()=> {
+            if(timerID < timer) {
+                res(response.json())
+                clearTimeout(timerID)
+            }else {
+                res([])
+            }
+            
+        }, timer)
+    })
+}
