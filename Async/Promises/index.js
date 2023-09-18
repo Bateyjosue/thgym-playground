@@ -22,3 +22,4 @@ async function fetchVehicles(url) {
     }
 }
 
+fetchVehicles(baseURL)
