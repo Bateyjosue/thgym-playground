@@ -38,3 +38,7 @@ async function performFastAsync(url, timer){
         }, timer)
     })
 }
+let baseURL = 'https://jsonplaceholder.typicode.com/todos/1'
+
+performFastAsync(baseURL,10)
+.then((data) => console.log(data))
