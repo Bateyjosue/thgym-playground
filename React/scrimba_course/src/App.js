@@ -8,7 +8,7 @@ function Home() {
       <header>
         <Header />
       </header>
-      <main>
+      <main className='main'>
         <MainComponent/>
       </main>
     </>

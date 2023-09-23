@@ -59,3 +59,10 @@ main ul li::marker {
   filter: brightness(50%);
   mix-blend-mode:lighten;
 }
+
+.main {
+  background-image: url(./assets/img/react-icon-large.png);
+  background-repeat: no-repeat;
+  background-position: right 20%;
+  height: 80dvh;
+}
