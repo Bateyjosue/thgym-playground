@@ -26,7 +26,7 @@ interface Ref {
       ]
     },
     {
-      link: 'user_clocks',
+      link: 'user_clicks',
       title: 'Exercise 2: Capturing User Clicks',
       description: 'This exercise gets you started with event handling',
       ref: [
