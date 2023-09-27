@@ -3,12 +3,14 @@ import React from 'react'
 import memesData from '../data/memesData'
 
 const Meme = () => {
+  const [meme, setMeme] = React.useState('https://i.imgflip.com/22bdq6.jpg')
   const loadRandomImage = (e) => {
     e.preventDefault()
     const memeImage = document.querySelector('#meme--image');
     const memesArray = memesData.data.memes
     const randomNumber = Math.floor(Math.random() * memesArray.length)
-    memeImage.innerHTML = `<img src="${memesArray[randomNumber].url}" alt="meme random" class="max-w-[100%] h-[100%] rounded-xl"/>`
+    setMeme( memesArray[randomNumber].url)
+    memeImage.innerHTML = `<img src="${meme}" alt="meme random" class="max-w-[100%] h-[100%] rounded-xl"/>`
 
   }
   return (
@@ -16,16 +18,21 @@ const Meme = () => {
     <section className='container mx-auto px-8 mt-8'>
         <div  className='grid grid-cols-2 gap-4'>
             <input 
-            type="text"
-            name="text-1" 
-            placeholder='Text 1' 
-            className='border rounded-md p-1.5 text-sm'/>
+              type="text"
+              name="text-1" 
+              placeholder='Text 1' 
+              className='border rounded-md p-1.5 text-sm'
+              // onChange={addFirstText}
+            />
+            
 
             <input 
-              type="text" 
-              name="text-2" 
-              placeholder='Text 2'
-              className='border rounded-md p-1.5 text-sm' />
+                type="text" 
+                name="text-2" 
+                placeholder='Text 2'
+                className='border rounded-md p-1.5 text-sm' 
+                // onChange={addSecondText}
+              />
               
             <input 
                 type="submit" 
