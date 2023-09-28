@@ -2,17 +2,24 @@
 import React from 'react';
 function App() {
   const [signUpData, setSignUpData] = React.useState({
-    email: 'j@gmail.com',
-    password: '000000',
-    confirmPassword: '000000',
+    email: '',
+    password: '',
+    confirmPassword: '',
     joinNewsLetter: true
 })
 
 function handleSubmit(event) {
+    const popup = document.querySelector('.popup')
     event.preventDefault()
     signUpData.password === signUpData.confirmPassword 
-    ? console.log("Successfully signed up")
-    : console.log("passwords to not match")
+    ? popup.textContent = "Successfully signed up"
+    : popup.textContent ="passwords not match"
+    popup.style["display"] = "block"
+    popup.style["position"] = "fixed"
+
+    setTimeout(() => {
+      popup.style["display"] = "none"
+    }, 3000)
     
     signUpData.joinNewsLetter && console.log("Thanks for signing up for our newsletter!")
     
@@ -28,10 +35,10 @@ function handleSignUpData(e){
     })
 }
 
+
 return (
     <div className="form-container">
-        <div className="popup ">
-
+        <div className={`popup bg-gray-200 rounded-xl hidden  p-4`}>
         </div>
         <form className="form" onSubmit={handleSubmit}>
             <input 
