@@ -30,6 +30,9 @@ function handleSignUpData(e){
 
 return (
     <div className="form-container">
+        <div className="popup ">
+
+        </div>
         <form className="form" onSubmit={handleSubmit}>
             <input 
                 type="email" 
