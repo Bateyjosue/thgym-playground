@@ -3,13 +3,10 @@ import React from 'react'
 import memesData from '../data/memesData'
 
 const Meme = () => {
-  // const memeImage = document.querySelector('#meme--image');
 
   const [meme, setMeme] = React.useState('https://i.imgflip.com/22bdq6.jpg')
   const [firstText, setFirstText] = React.useState('')
   const [secondText, setSecondText] = React.useState('')
-  
-  // memeImage.innerHTML = ``
   
   const loadRandomImage = (e) => {
     e.preventDefault()
@@ -18,7 +15,6 @@ const Meme = () => {
     const randomNumber = Math.floor(Math.random() * memesArray.length)
     setMeme( memesArray[randomNumber].url)
     memeImage.src = {meme}
-    // memeImage.innerHTML = `<img src="${meme}" alt="meme random" class="max-w-[100%] h-[100%] rounded-xl"/>`
 
   }
 
