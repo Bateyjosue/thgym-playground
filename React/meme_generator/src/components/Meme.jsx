@@ -3,10 +3,11 @@ import React from 'react'
 import memesData from '../data/memesData'
 
 const Meme = () => {
-
   const [meme, setMeme] = React.useState('https://i.imgflip.com/22bdq6.jpg')
-  const [firstText, setFirstText] = React.useState('')
-  const [secondText, setSecondText] = React.useState('')
+  const [memeText, setMemeText] = React.useState({
+    top: "",
+    bottom: "",
+  })
   
   const loadRandomImage = (e) => {
     e.preventDefault()
@@ -15,22 +16,19 @@ const Meme = () => {
     const randomNumber = Math.floor(Math.random() * memesArray.length)
     setMeme( memesArray[randomNumber].url)
     memeImage.src = {meme}
-
   }
 
-  const addFirstText = (e) => {
+  const handeChange = (e) => {
     e.preventDefault()
-    const memeImage = document.querySelector('#meme--image .first--text');
-    setFirstText(e.target.value)
-    memeImage.textContent=  firstText
+    const {name, value} = e.target
+    setMemeText((prevText)=>{
+      return {
+        ...prevText,
+        [name]: value
+      }
+    })
   }
 
-  const addSecondText = (e) => {
-    e.preventDefault()
-    const memeImage = document.querySelector('#meme--image .second--text');
-    setSecondText(e.target.value)
-    memeImage.textContent=   secondText
-  }
 
   return (
     <>
@@ -38,19 +36,22 @@ const Meme = () => {
         <div  className='grid grid-cols-2 gap-4'>
             <input 
               type="text"
-              name="text-1" 
-              placeholder='Text 1' 
+              name="top" 
+              placeholder='Top Text ' 
               className='border rounded-md p-1.5 text-sm'
-              onChange={addFirstText}
+              onChange={handeChange}
+              value={memeText.top}
             />
             
 
             <input 
                 type="text" 
-                name="text-2" 
-                placeholder='Text 2'
+                name="bottom" 
+                placeholder='Bottom Text'
                 className='border rounded-md p-1.5 text-sm' 
-                onChange={addSecondText}
+                onChange={handeChange}
+                value={memeText.bottom}
+
               />
               
             <input 
@@ -67,8 +68,8 @@ const Meme = () => {
         id='meme--image' 
         className='relative rounded-xl border-2 border-[#A818DA]  my-8 flex justify-center items-center flex-col h-full'>
           <img src={meme} alt="meme random" className="max-w-[100%] h-[100%] rounded-xl"/>
-          <div className='first--text absolute top-5 bg-black text-white p-2 rounded-xl text-3xl'></div>
-          <div className='second--text absolute bottom-5 bg-black text-white p-2 rounded-xl text-3xl'></div>
+          <div className='first--text absolute top-5 bg-black text-white p-2 rounded-xl text-3xl'>{memeText.top}</div>
+          <div className='second--text absolute bottom-5 bg-black text-white p-2 rounded-xl text-3xl'>{memeText.bottom}</div>
       </article>
     </section>
     </>
