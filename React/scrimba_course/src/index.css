@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #131313;
+
+}
+
+header {
+  background: #000;
+  color:white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.5rem 2rem;
+  box-shadow: 5px 5px 5px rgb(30, 30, 30);
+}
+
+header h2 {
+  color: rgba(200, 171, 9, 0.862);
+}
+
+main {
+  color: white;
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+main ul {
+  padding-left: 2rem;
+  padding-top: 2rem;
+  line-height: 2rem;
+}
+
+main ul li::marker {
+  color: rgba(200, 171, 9, 0.862);
+  font-size: 1.4rem;
+  margin-top: .5rem;
+  padding-top: .5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  filter: brightness(50%);
+  mix-blend-mode:lighten;
+}
+
+.main {
+  background-image: url(./assets/img/react-icon-large.png);
+  background-repeat: no-repeat;
+  background-position: right 20%;
+  height: 80dvh;
+}
