@@ -15,7 +15,7 @@ async function fetchVehicles(url) {
     try {
         let response = await fetch(url)
         let data = await response.json()
-         console.log(data.Results.filter(vehicle => vehicle.Country == 'UNITED STATES ()'))
+         console.log(data.Results.filter(vehicle => vehicle.Country == 'UNITED STATES (USA)'))
     }
     catch(error) {
         console.log(error);

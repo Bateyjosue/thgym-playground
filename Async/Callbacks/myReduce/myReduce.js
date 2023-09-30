@@ -30,8 +30,8 @@ Array.prototype.myReduce = myReduce
 const numbers = [1, 2, 3, 4]
 
 const sum = numbers.myReduce((acc , curr) => {
-	return acc + curr 
-}, 0)
+	return acc * curr 
+}, 1)
 
 console.log(sum)
     // console.log(numbers.reduce((a, b) => a + b))
