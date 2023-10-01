@@ -38,15 +38,10 @@ interface Ref {
       ]
     },
     {
-      link: 'user_clicks',
-      title: 'Exercise 2: Capturing User Clicks',
-      description: 'This exercise gets you started with event handling',
-      ref: [
-        {
-          name: 'How to center a text inside a div', 
-          url:'https://www.w3schools.com/css/css_align.asp', 
-        },
-        
+      link: 'custom_component',
+      title: 'Exercise 3: Custom Component',
+      description: 'In this exercise, build your own Button component and render it three times',
+      ref: [      
       ]
     }
   ]
