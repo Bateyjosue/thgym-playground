@@ -51,6 +51,13 @@ interface Ref {
       ref: [      
       ]
     },
+    {
+      link: 'map_list',
+      title: 'Exercise 5: Mapping Through A List And Rendering',
+      description: 'Use the map function to render them in an unordered list',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
