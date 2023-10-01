@@ -5,6 +5,7 @@ import Home from './App.tsx'
 import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Custom_Component from './pages/Ex3.tsx'
+import StateProps from './pages/Ex4.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Route path='/hello-world' element={<HelloWorld />} />
       <Route path='/user_clicks' element={<UserClicks />} />
       <Route path='/custom_component' element={<Custom_Component />} />
+      <Route path='/state_props' element={<StateProps />} />
     </Routes>
 
   </BrowserRouter>
