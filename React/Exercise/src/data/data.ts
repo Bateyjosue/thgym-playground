@@ -58,6 +58,13 @@ interface Ref {
       ref: [      
       ]
     },
+    {
+      link: 'map_list_component',
+      title: 'Exercise 6: Mapping Through A List And Rendering using Component',
+      description: 'you\'ll create a custom component that displays each item from exercise 5',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
