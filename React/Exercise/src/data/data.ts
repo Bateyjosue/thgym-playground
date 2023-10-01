@@ -2,7 +2,7 @@ interface Ref {
     name: string,
     url: string,
   }
-  interface Questions {
+  export interface Questions {
     link: string;
     title: string;
     description: string;

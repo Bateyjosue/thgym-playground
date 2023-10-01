@@ -1,7 +1,6 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
-
-const Exercise = (exercise) => {
+import { Questions } from '../data/data'
+const Exercise = (exercise: Questions) => {
     const {link, title, description} = exercise
   return (
     <>

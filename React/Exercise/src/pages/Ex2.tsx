@@ -1,8 +1,8 @@
-import React from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from '../components/Header'
 
 const UserCLicks = () => {
-    const handleClick = (e) => {
+    const handleClick = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         alert('You have clicked me')
     }
@@ -14,7 +14,7 @@ const UserCLicks = () => {
                 onClick={handleClick}
                 className='mt-10 border border-white bg-yellow-700 hover:bg-purple-950 uppercase font-semibold text-white px-4 py-2 rounded-md flex items-center gap-2'>
                 Click on me!
-                <span class="material-symbols-outlined">ads_click</span>
+                <span className="material-symbols-outlined">ads_click</span>
             </button>
         </main>
     </>
