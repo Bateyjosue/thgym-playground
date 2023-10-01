@@ -43,7 +43,14 @@ interface Ref {
       description: 'In this exercise, build your own Button component and render it three times',
       ref: [      
       ]
-    }
+    },
+    {
+      link: 'state_props',
+      title: 'Exercise 4: State and Props',
+      description: 'The number must increment each time the button is clicked',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
