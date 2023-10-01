@@ -20,7 +20,9 @@ const StateProps = () => {
             <section className='mt-10 text-center'>
                 <h2 className='text-2xl'>Button has been clicked: {count} time{count>1 && 's'}</h2>
                 <button onClick={handleClick} className='border rounded-md p-2 my-4 bg-yellow-800 text-white font-bold'>Click me</button>
-                <button onClick={handleClear} className='border rounded-md p-2 my-4 bg-red-800 text-white font-bold'>Clear</button>
+                <button onClick={handleClear} className='border rounded-md p-2 my-4 bg-red-800 text-white font-bold'>
+                    <span className='material-symbols-outlined'>refresh</span>
+                </button>
             </section>
         </main>
     </>
