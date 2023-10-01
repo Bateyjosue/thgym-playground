@@ -1,5 +1,7 @@
 import Header from '../components/Header'
 
+// Component for Exercise 1
+
 function HelloWorld(){
   return (
     <>
