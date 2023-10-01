@@ -10,6 +10,7 @@ import MapList from './pages/Ex5.tsx'
 import MapListComponent from './pages/Ex6.tsx'
 import BuildingForm from './pages/Ex7.tsx'
 import RenderingJson from './pages/Ex8.tsx'
+import WorkingApi from './pages/Ex9.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Route path='/map_list_component' element={<MapListComponent />} />
       <Route path='/building_form' element={<BuildingForm />} />
       <Route path='/rendering_json' element={<RenderingJson />} />
+      <Route path='/working_API' element={<WorkingApi />} />
     </Routes>
 
   </BrowserRouter>

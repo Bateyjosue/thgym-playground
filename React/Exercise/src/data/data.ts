@@ -79,6 +79,13 @@ interface Ref {
       ref: [      
       ]
     },
+    {
+      link: 'working_API',
+      title: 'Exercise 9: Working with an API',
+      description: 'work with an API and build a simple frontend',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
