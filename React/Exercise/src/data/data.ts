@@ -72,6 +72,13 @@ interface Ref {
       ref: [      
       ]
     },
+    {
+      link: 'rendering_json',
+      title: 'Exercise 8: Rendering JSON',
+      description: 'JSON stands for JavaScript Object Notation, a type of format for data interchange.',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
