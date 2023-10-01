@@ -8,6 +8,7 @@ import Custom_Component from './pages/Ex3.tsx'
 import StateProps from './pages/Ex4.tsx'
 import MapList from './pages/Ex5.tsx'
 import MapListComponent from './pages/Ex6.tsx'
+import BuildingForm from './pages/Ex7.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <Route path='/state_props' element={<StateProps />} />
       <Route path='/map_list' element={<MapList />} />
       <Route path='/map_list_component' element={<MapListComponent />} />
+      <Route path='/building_form' element={<BuildingForm />} />
     </Routes>
 
   </BrowserRouter>

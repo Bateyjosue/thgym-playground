@@ -65,6 +65,13 @@ interface Ref {
       ref: [      
       ]
     },
+    {
+      link: 'building_form',
+      title: 'Exercise 7: Building A Form',
+      description: 'Unleash some more power from React by building a form',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
