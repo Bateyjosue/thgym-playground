@@ -11,9 +11,7 @@ const MapListComponent = () => {
             <section className='mt-10'>
                 <ul className='list-disc mx-8 marker:text-yellow-500 text-xl'>
                     {
-                        animals.map((animal, index) =>(
-                            <Animal key={index} animal={animal} />
-                        ))
+                    <Animal animals={animals} />
                     }
 
                 </ul>

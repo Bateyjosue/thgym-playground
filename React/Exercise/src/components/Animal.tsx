@@ -1,16 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
+import React from 'react';
 
 interface AnimalProps {
-  animal: string;
+  animals: string[];
 }
 
-const Animal= ({animal}:AnimalProps ) => {
+const Animal: React.FC<AnimalProps> = (props) => {
+  const { animals } = props;
   return (
     <div>
-        <li>{animal}</li> 
+      {animals.map((animal, index) => (
+        <li key={index}>{animal}</li>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Animal
+export default Animal;
