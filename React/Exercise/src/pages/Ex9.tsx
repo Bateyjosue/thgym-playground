@@ -27,7 +27,7 @@ const WorkingApi = () => {
                     className='bg-yellow-800 w-[50%] mx-auto px-4 py-1 text-white rounded-xl font-bold shadow-xl'>
                         Fetch Random
                 </button>
-                <ul className='grid grid-cols-2 gap-4 my-5'>
+                <ul className='grid grid-cols-2 lg:grid-cols-5 gap-4 my-5'>
                     {
                         userData.map((user: User) => (
                             <Card key={user.id} {...user} />

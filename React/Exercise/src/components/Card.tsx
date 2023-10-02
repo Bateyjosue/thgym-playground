@@ -36,7 +36,7 @@ const Card = (props: User) => {
     <li className='border rounded-lg p-2'>
         <div className='card'>
             <div className='card-body'>
-                <img src={avatar} alt="" />
+                <img src={avatar} alt={first_name} className="mx-auto" />
                 <h5 className='card-title text-xl font-semibold'>{`${first_name} ${last_name}`}</h5>
                 <p className='card-text'>{`${employment
 .title}`}</p>
