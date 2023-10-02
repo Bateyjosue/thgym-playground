@@ -21,7 +21,9 @@ const BuildingForm = () => {
 
     const handleSubmit = (e: React.MouseEvent): void => {
         e.preventDefault();
-        alert(`Hello ${UserInfo.firstName} ${UserInfo.lastName}!`)
+        if(UserInfo.firstName || UserInfo.lastName){
+            alert(`Hello ${UserInfo.firstName} ${UserInfo.lastName}!`)
+        }
         setUserInfo({
             firstName: '',
             lastName: '',
