@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/Header'
 
 const BuildingForm = () => {
@@ -8,7 +8,7 @@ const BuildingForm = () => {
         lastName: '',
     })
 
-    const handleChange =(e: Event) => {
+    const handleChange =(e: React.ChangeEvent) => {
         const {name, value} = (e.target as HTMLInputElement)
         e.preventDefault();
         setUserInfo((prevUserInfo) => {
@@ -19,7 +19,7 @@ const BuildingForm = () => {
         })
     }
 
-    const handleSubmit = (e: Event): void => {
+    const handleSubmit = (e: React.MouseEvent): void => {
         e.preventDefault();
         alert(`Hello ${UserInfo.firstName} ${UserInfo.lastName}!`)
         setUserInfo({

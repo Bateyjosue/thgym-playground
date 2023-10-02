@@ -5,11 +5,11 @@ import Header from '../components/Header'
 
 const StateProps = () => {
     const [count, setCount] = useState(0)
-    const handleClick = (e: Event) => {
+    const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
         setCount(()=> count+1)
     }
-    const handleClear = (e:Event) => {
+    const handleClear = (e:React.MouseEvent) => {
         e.preventDefault()
         setCount(0)
     }
