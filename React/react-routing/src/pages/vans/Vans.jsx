@@ -24,8 +24,8 @@ const Vans = () => {
                     vans.map(van => (
                         <li key={van.id} className="van-tile">
                             <img src={van.imageUrl} alt="Van Avatar" />
-                            <div className="van-info">
-                                <h3>{van.name}</h3>
+                            <div className="van-info mb-2">
+                                <h3 className='font-bold'>{van.name}</h3>
                                 <p>${van.price}<span>/day</span></p>
                             </div>
                             <i className={`van-type ${van.type} selected`}>{van.type}</i>
