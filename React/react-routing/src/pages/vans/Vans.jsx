@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Header from '../../components/header/Header'
+import '../../components/Van/van/'
 
 const Vans = () => {
     const [vans, setVans] = useState([])
@@ -15,12 +16,19 @@ const Vans = () => {
         <Header />
         <main className='mx-20 my-12'>
             <h1>Vans page goes here 🚐</h1>
-            <ul className='list-disc'>
+            <section className='van-list-container'>
+
+            </section>
+            <ul className='van-list'>
                 {
                     vans.map(van => (
-                        <li key={van.id}>
-                            {/* <Link to={`/vans/${van.id}`}>{van.name}</Link> */}
-                            {van.name}
+                        <li key={van.id} className="van-tile">
+                            <img src={van.imageUrl} alt="Van Avatar" />
+                            <div className="van-info">
+                                <h3>{van.name}</h3>
+                                <p>${van.price}<span>/day</span></p>
+                            </div>
+                            <i className={`van-type ${van.type} selected`}>{van.type}</i>
                         </li>
                     ))
                 }
