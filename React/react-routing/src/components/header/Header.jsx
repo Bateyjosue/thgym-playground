@@ -12,6 +12,9 @@ const Header = () => {
         <nav className='font-medium'>
             <ul className='flex gap-4'>
                 <li>
+                    <Link to="/host">Host</Link>
+                </li>
+                <li>
                     <Link to="/about">About</Link>
                 </li>
                 <li>
