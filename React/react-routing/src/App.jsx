@@ -4,19 +4,20 @@ import About from "./pages/about/About";
 import Vans from "./pages/vans/Vans";
 import './data/server'
 import VanDetails from "./pages/vans/VanDetails";
-import Header from "./components/header/Header";
+import Layout from "./components/layout/Layout";
 
 
 function App() {
 
   return (
     <BrowserRouter>
-        <Header  />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VanDetails />} />
+        <Route element={<Layout/>}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetails />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
