@@ -29,18 +29,18 @@ export interface User  {
     uid: string;
 }
 
-const Card = (props: User) => {
-    const {first_name, last_name, avatar, employment, address} = props;
+const Card = ({first_name, last_name, avatar, employment, address}) => {
   return (
     <li className='flip-card border rounded-lg p-2'>
         <div className='flip-card-inner card '>
             <div className='flip-card-front card-body'>
                 <img src={avatar} alt={first_name} className="mx-auto" />
-                <h5 className='card-title text-xl font-semibold'>{`${first_name} ${last_name}`}</h5>
-                <p className='card-text'>{`${employment
-.title}`}</p>
+                
             </div>
             <div className="flip-card-back">
+            <h5 className='card-title text-xl font-semibold'>{`${first_name} ${last_name}`}</h5>
+                <p className='card-text'>{`${employment
+.title}`}</p>
                 <h2 className="my-4">Address</h2>
                 <p>{address.city}</p>
                 <p>{address.country}</p>

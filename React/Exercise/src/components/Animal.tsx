@@ -4,8 +4,7 @@ interface AnimalProps {
   animals: string[];
 }
 
-const Animal: React.FC<AnimalProps> = (props) => {
-  const { animals } = props;
+const Animal: React.FC<AnimalProps> = ({animals}) => {
   return (
     <div>
       {animals.map((animal, index) => (
