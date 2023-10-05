@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Header from '../../components/header/Header'
 import './van.css'
 import { Link } from 'react-router-dom'
 
@@ -14,9 +13,8 @@ const Vans = () => {
     }, [])
   return (
     <>
-        <Header />
-        <main className='mx-20 my-12'>
-            <h1>Vans page goes here 🚐</h1>
+        <main className=' my-12'>
+            <h1 className='text-4xl text-center font-bold'>Vans page goes here 🚐</h1>
             <section className='van-list-container'>
                 <ul className='van-list'>
                     {

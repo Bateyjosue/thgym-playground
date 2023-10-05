@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header className='h-20 bg-yellow-950 text-white container mx-auto px-8 flex justify-between items-center'>
+    <header className='h-20 bg-yellow-950 text-white container mx-auto px-8 flex justify-between items-center min-w-full'>
         <h1 className='text-2xl font-bold'>
             <Link to="/"> #VANLIFE</Link>
         </h1>

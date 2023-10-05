@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
-import Header from '../../components/header/Header'
 
 const VanDetails = () => {
   const [vanDetails, setVanDetails] = useState({})
@@ -14,7 +13,6 @@ const VanDetails = () => {
     const {name, description, imageUrl, price, type} = vanDetails
   return (
     <>
-        <Header/>
         <main className='container mx-auto'>
           <div className="van-detail-container">
               {vanDetails ? (
