@@ -1,13 +1,22 @@
 import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
+import {getVan} from '../../data/fetchData'
 
 const VanDetails = () => {
   const [vanDetails, setVanDetails] = useState({})
     const {id} = useParams()
     useEffect(()=> {
-      fetch(`/api/vans/${id}`)
-      .then(res => res.json())
-      .then(data => setVanDetails(data.vans))
+      try {
+        (
+          async () => {
+            const vanDetails = await getVan(id)
+            setVanDetails(vanDetails.vans)
+          }
+        )()
+      }
+      catch(err) {
+        console.log(err)
+      }
     }, [id])
 
     const {name, description, imageUrl, price, type} = vanDetails

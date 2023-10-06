@@ -1,15 +1,23 @@
 import { useState, useEffect } from 'react'
 import './van.css'
 import { Link } from 'react-router-dom'
+import { getVans } from '../../data/fetchData'
 
 const Vans = () => {
     const [vans, setVans] = useState([])
 
-    useEffect(() =>{
-        fetch('/api/vans')
-        .then(res => res.json())
-        .then(data => setVans(data.vans))
-        .catch(err => console.log(`Network ERROR ${err.message}`))
+    useEffect( () =>{
+        try{
+            (
+                async () => {
+                    const vans = await getVans()
+                    setVans(vans.vans)
+                }
+            )()
+        }
+        catch(err){
+            console.log(err)
+        }
     }, [])
   return (
     <>
