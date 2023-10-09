@@ -10,7 +10,11 @@ const HostVanPhotos = () => {
 }
   return (
     <div>
-        <img src={imageUrl} alt="" width="60" />
+        <img 
+            src={imageUrl} 
+            alt="" 
+            className="host-van-detail-image"
+        />
     </div>
   )
 }
