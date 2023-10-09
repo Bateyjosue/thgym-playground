@@ -27,7 +27,7 @@
     cursor: pointer;
 }
 
-.van-list-filter-buttons > a {
+.van-list-filter-buttons > button {
     margin-right: 15px;
 }
 

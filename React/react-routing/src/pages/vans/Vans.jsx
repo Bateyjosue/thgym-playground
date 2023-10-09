@@ -32,13 +32,17 @@ const Vans = () => {
             <main className=' my-12'>
                 <h1 className='text-4xl text-center font-bold'>Vans page goes here 🚐</h1>
                 <div className='van-list-filter-buttons'>
-                    <Link className='van-type simple'
-                        to="?type=simple">Simple</Link>
-                    <Link className='van-type rugged'
-                        to="?type=rugged">Rugged</Link>
-                    <Link className='van-type luxury'
-                        to="?type=luxury">Luxury</Link>
-                    <Link to='.' className='van-type clear-filters'>Clear All</Link>
+                    <button className='van-type simple'
+                        onClick={()=> setSearchParams({type: 'simple'})}
+                        >Simple</button>
+                    <button className='van-type rugged'
+                        onClick={()=> setSearchParams({type: 'rugged'})}>Rugged</button>
+                    <button className='van-type luxury'
+                        onClick={()=> setSearchParams({type: 'luxury'})}>Luxury</button>
+                    <button 
+                        className='van-type clear-filters'
+                        onClick={()=> setSearchParams({})}
+                        >Clear All</button>
                 </div>
                 <section className='van-list-container'>
                     <ul className='van-list'>
