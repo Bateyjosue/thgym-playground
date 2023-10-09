@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 import { NavLink, Link, Outlet, useParams } from "react-router-dom"
 import {getHostVan} from "../../data/fetchData"
 
-const active = {
-  textDecoration: 'underline',
+const activeStyles = {
+  textDecoration: 'underline wavy',
 }
 
 const HostVan = () => {
@@ -31,7 +31,7 @@ const HostVan = () => {
     return <h1>Loading...</h1>
 }
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto ">
       <Link
         to=".."
         relative="path"
@@ -50,36 +50,29 @@ const HostVan = () => {
                   <h4>${price}/day</h4>
               </div>
           </div>
-      </div>
-      <div className="mini-nav flex gap-4 my-4">
-        <NavLink
-        end 
-        to={`/host/vans/${id}`}
-        style={({isActive}) => { isActive? active : null}}
-        >
-          <div className="mini-nav-item">
-            <i className="fas fa-info-circle"></i>
-            <span>Info</span>
-          </div>
-        </NavLink>
-        <NavLink to={`/host/vans/${id}/pricing`}
-          style={({isActive}) => { isActive? active : null}}
-        >
-          <div className="mini-nav-item">
-            <i className="fas fa-dollar-sign"></i>
-            <span>Pricing</span>
-          </div>
-        </NavLink>
-        <NavLink to={`/host/vans/${id}/photos`}
-          style={({isActive}) => { isActive? active : null}}
-        >
-          <div className="mini-nav-item">
-            <i className="fas fa-images"></i>
-            <span>Photos</span>
-          </div>
-        </NavLink>
-      </div>
+      <nav className="host-van-detail-nav">
+      <NavLink
+        to="."
+        end
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Details
+    </NavLink>
+    <NavLink
+        to="pricing"
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Pricing
+    </NavLink>
+    <NavLink
+        to="photos"
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Photos
+    </NavLink>
+      </nav>
       <Outlet context={[van]}/>
+      </div>
     </section>
   )
 }

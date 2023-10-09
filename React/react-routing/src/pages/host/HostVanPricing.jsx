@@ -8,7 +8,7 @@ const HostVanPricing = () => {
     return <h1>Loading...</h1>
 }
   return (
-    <div>
+    <div className="">
         <p><span className="font-bold">${price}</span>/day</p>
     </div>
   )
