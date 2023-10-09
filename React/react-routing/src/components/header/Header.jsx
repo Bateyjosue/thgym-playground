@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className='h-20 bg-yellow-950 text-white container mx-auto px-8 flex justify-between items-center min-w-full'>
         <h1 className='text-2xl font-bold'>
-            <NavLink
+            <NavLink end
                 to="/"> #VANLIFE</NavLink>
         </h1>
         <nav className='font-medium'>

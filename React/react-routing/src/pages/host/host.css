@@ -1,9 +1,9 @@
-.active {
+/* .active {
     text-decoration: underline wavy;
     color: red;
     text-underline-offset: 2px;
     font-weight: bold;
-}
+} */
 
 .host-nav {
     display: flex;

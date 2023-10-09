@@ -1,10 +1,17 @@
 import { useState, useEffect } from 'react'
 import './van.css'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { getVans } from '../../data/fetchData'
 
 const Vans = () => {
     const [vans, setVans] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const typeFilter = searchParams.get("type")
+
+    const filterVans = typeFilter 
+        ? vans.filter(van => van.type === typeFilter) 
+        : vans
 
     useEffect( () =>{
         try{
@@ -19,32 +26,42 @@ const Vans = () => {
             console.log(err)
         }
     }, [])
-  return (
-    <>
-        <main className=' my-12'>
-            <h1 className='text-4xl text-center font-bold'>Vans page goes here 🚐</h1>
-            <section className='van-list-container'>
-                <ul className='van-list'>
-                    {
-                        vans.map(van => (
-                            <li key={van.id} className="van-tile">
-                                <Link to={van.id}>
-                                    <img src={van.imageUrl} alt="Van Avatar" />
-                                    <div className="van-info mb-2">
-                                        <h3 className='font-bold'>{van.name}</h3>
-                                        <p>${van.price}<span>/day</span></p>
-                                    </div>
-                                    <i className={`van-type ${van.type} selected`}>{van.type}</i>
-                                </Link>
-                            </li>
-                        ))
-                    }
-                </ul>
 
-            </section>
-        </main>
-    </>
-  )
+    return (
+        <>
+            <main className=' my-12'>
+                <h1 className='text-4xl text-center font-bold'>Vans page goes here 🚐</h1>
+                <div className='van-list-filter-buttons'>
+                    <Link className='van-type simple'
+                        to="?type=simple">Simple</Link>
+                    <Link className='van-type rugged'
+                        to="?type=rugged">Rugged</Link>
+                    <Link className='van-type luxury'
+                        to="?type=luxury">Luxury</Link>
+                    <Link to='.' className='van-type clear-filters'>Clear All</Link>
+                </div>
+                <section className='van-list-container'>
+                    <ul className='van-list'>
+                        {
+                            filterVans.map(van => (
+                                <li key={van.id} className="van-tile">
+                                    <Link to={van.id}>
+                                        <img src={van.imageUrl} alt="Van Avatar" />
+                                        <div className="van-info mb-2">
+                                            <h3 className='font-bold'>{van.name}</h3>
+                                            <p>${van.price}<span>/day</span></p>
+                                        </div>
+                                        <i className={`van-type ${van.type} selected`}>{van.type}</i>
+                                    </Link>
+                                </li>
+                            ))
+                        }
+                    </ul>
+
+                </section>
+            </main>
+        </>
+    )
 }
 
 export default Vans
