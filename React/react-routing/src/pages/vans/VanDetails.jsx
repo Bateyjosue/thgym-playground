@@ -5,6 +5,7 @@ import {getVan} from '../../data/fetchData'
 const VanDetails = () => {
   const [vanDetails, setVanDetails] = useState({})
   const location = useLocation()
+  const typeFilter = location.state?.type || 'all'
 
   console.log(location);
     const {id} = useParams()
@@ -31,7 +32,7 @@ const VanDetails = () => {
               to={`..?${location.state ? location.state.search : ''}`}
               relative='path'
               className='back-button hover:underline'>
-                &larr; Back to all vans
+                &larr; Back to {typeFilter} vans
             </Link>
               {vanDetails ? (
                   <div className="van-detail">
