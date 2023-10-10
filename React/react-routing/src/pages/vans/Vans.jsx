@@ -58,7 +58,9 @@ const Vans = () => {
             {
               filterVans.map(van => (
                 <li key={van.id} className="van-tile">
-                  <Link to={van.id}>
+                  <Link to={van.id}
+                    state={{search: searchParams.toString()}}
+                    >
                     <img src={van.imageUrl} alt="Van Avatar" />
                     <div className="van-info mb-2">
                       <h3 className='font-bold'>{van.name}</h3>
