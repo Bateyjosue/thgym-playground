@@ -6,26 +6,41 @@ import { getVans } from '../../data/fetchData'
 const Vans = () => {
   const [vans, setVans] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   const typeFilter = searchParams.get("type")
+
+  useEffect( () =>{
+    (
+        async () => {
+          setLoading(true)
+          try{
+            const vans = await getVans()
+            console.log(vans)
+            setVans(vans.vans)
+          }
+          catch(err){
+            setError(err)
+          }
+          finally {
+            setLoading(false)
+          }
+        }
+    )()
+  }, [])
+
+  if(loading) {
+    return <h1>Loading...</h1>
+  }
+
+  if(error) {
+    return <h1>{error.message}</h1>
+  }
 
   const filterVans = typeFilter 
       ? vans.filter(van => van.type === typeFilter) 
       : vans
-
-  useEffect( () =>{
-      try{
-          (
-              async () => {
-                  const vans = await getVans()
-                  setVans(vans.vans)
-              }
-          )()
-      }
-      catch(err){
-          console.log(err)
-      }
-  }, [])
 
   return (
     <>
