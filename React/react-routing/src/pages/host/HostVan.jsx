@@ -1,15 +1,79 @@
 // import React from 'react'
-import { NavLink, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { NavLink, Link, Outlet, useParams } from "react-router-dom"
+import {getHostVan} from "../../data/fetchData"
+
+const activeStyles = {
+  textDecoration: 'underline wavy',
+}
 
 const HostVan = () => {
-  return (
-    <div>
-      <NavLink to='/host/vans' className='underline text-blue-500'>Back to vans</NavLink>
-      <p>
+  const [van, setVan] = useState([])
+  const {id} = useParams()
 
-      Host single Van {useParams().id}
-      </p>
-    </div>
+
+  useEffect(() => {
+    try{
+      (
+        async() => {
+          const van = await getHostVan(id)
+          setVan(van.vans)
+        }
+      )()
+    }
+    catch(err){
+      console.log(err);
+    }
+  }, [id])
+  const {name, imageUrl, type, price} = van
+
+  if (!van) {
+    return <h1>Loading...</h1>
+}
+  return (
+    <section className="container mx-auto ">
+      <Link
+        to=".."
+        relative="path"
+        className="back-button"
+        >&larr; <span>Back to all vans</span></Link>
+      <div className="host-van-detail-layout-container">
+          <div className="host-van-detail">
+              <img src={imageUrl} alt="" />
+              <div className="host-van-detail-info-text">
+                  <i
+                      className={`van-type van-type-${type}`}
+                  >
+                      {type}
+                  </i>
+                  <h3>{name}</h3>
+                  <h4>${price}/day</h4>
+              </div>
+          </div>
+      <nav className="host-van-detail-nav">
+      <NavLink
+        to="."
+        end
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Details
+    </NavLink>
+    <NavLink
+        to="pricing"
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Pricing
+    </NavLink>
+    <NavLink
+        to="photos"
+        style={({ isActive }) => isActive ? activeStyles : null}
+    >
+        Photos
+    </NavLink>
+      </nav>
+      <Outlet context={[van]}/>
+      </div>
+    </section>
   )
 }
 

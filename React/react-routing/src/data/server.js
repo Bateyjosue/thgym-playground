@@ -18,9 +18,12 @@ createServer({
     routes() {
         this.namespace = "api"
         this.logging = false
+        // this.timing = 3000
 
         this.get("/vans", (schema, request) => {
             return schema.vans.all()
+            // throw new Response(400, {}, {error: "Error fetching data"})
+
         })
 
         this.get("/vans/:id", (schema, request) => {
@@ -36,7 +39,7 @@ createServer({
         this.get("/host/vans/:id", (schema, request) => {
             // Hard-code the hostId for now
             const id = request.params.id
-            return schema.vans.where({ id, hostId: "123" })
+            return schema.vans.findBy({ id, hostId: "123" })
         })
     }
 })
