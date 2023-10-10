@@ -7,7 +7,6 @@ const VanDetails = () => {
   const location = useLocation()
   const typeFilter = location.state?.type || 'all'
 
-  console.log(location);
     const {id} = useParams()
     useEffect(()=> {
       try {

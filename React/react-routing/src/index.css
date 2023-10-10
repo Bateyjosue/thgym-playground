@@ -12,3 +12,23 @@ html, body {
     background-color: #FFF7ED;
     font-family: "Inter", sans-serif;
 }
+
+a {
+    text-decoration: unset;
+    color: unset;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
