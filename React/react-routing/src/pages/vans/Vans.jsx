@@ -33,14 +33,14 @@ const Vans = () => {
         <h1 className='text-4xl text-center font-bold'>Vans page goes here 🚐</h1>
         <div className='van-list-filter-buttons'>
           <button 
-            className='van-type simple'
+            className={`van-type simple ${typeFilter === 'simple' ? 'selected' : ''}`}
             onClick={()=> setSearchParams({type: 'simple'})}
             >Simple</button>
           <button 
-            className='van-type rugged'
+            className={`van-type rugged ${typeFilter === 'rugged' ? 'selected' : ''}`}
             onClick={()=> setSearchParams({type: 'rugged'})}>Rugged</button>
           <button 
-            className='van-type luxury'
+            className={`van-type luxury ${typeFilter === 'luxury' ? 'selected' : ''}`}
             onClick={()=> setSearchParams({type: 'luxury'})}>Luxury</button>
             {
               typeFilter ? (
