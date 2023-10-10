@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
-import Vans from "./pages/vans/Vans";
+import Vans, {loader as vansLoader} from "./pages/vans/Vans";
 import './data/server'
 import VanDetails from "./pages/vans/VanDetails";
 import Layout from "./components/layout/Layout";
@@ -16,12 +16,18 @@ import HostVanInfo from "./pages/host/HostVanInfo";
 import HostVanPricing from "./pages/host/HostVanPricing";
 import HostVanPhotos from "./pages/host/HostVanPhotos";
 import NotFound from "./pages/NotFound";
+import Error from "./pages/Error";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout/>}>
     <Route index element={<Home />} />
     <Route path="about" element={<About />} />
-    <Route path="vans" element={<Vans />} />
+    <Route 
+      path="vans" 
+      element={<Vans />}
+      loader={vansLoader}
+      errorElement={<Error />}
+      />
     <Route path="vans/:id" element={<VanDetails />} />
     <Route path="host" element={<HostLayout />}>
       <Route index element={<Dashboard />} />

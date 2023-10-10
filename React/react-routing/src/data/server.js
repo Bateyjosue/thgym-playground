@@ -22,7 +22,7 @@ createServer({
 
         this.get("/vans", (schema, request) => {
             return schema.vans.all()
-            // return new Response(400, {}, {error: "Error fetching data"})
+            // throw new Response(400, {}, {error: "Error fetching data"})
 
         })
 
