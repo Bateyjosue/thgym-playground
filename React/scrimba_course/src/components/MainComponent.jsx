@@ -1,8 +1,8 @@
 import React from 'react'
 
-const MainComponent = () => {
+const MainComponent = ({darkMode}) => {
   return (
-    <>
+    <main className={`main ${darkMode ? 'dark': ''}` }>
         <h2>Fun facts about React</h2>
         <ul>
             <li>Was first released in 2013</li>
@@ -11,7 +11,7 @@ const MainComponent = () => {
             <li>Is maintained by Facebook</li>
             <li>Powers thousands of entreprise apps, including mobile apps</li>
         </ul>
-    </>
+    </main>
   )
 }
 

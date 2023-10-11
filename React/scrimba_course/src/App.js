@@ -11,12 +11,8 @@ function Home() {
   }
   return (
     <>
-      <header>
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      </header>
-      <main className='main'>
-        <MainComponent/>
-      </main>
+        <MainComponent darkMode={darkMode} />
     </>
   );
 }

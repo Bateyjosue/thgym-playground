@@ -23,7 +23,7 @@ body {
   justify-content: space-between;
 
   padding: 1.5rem 2rem;
-  box-shadow: 5px 5px 5px rgb(30, 30, 30);
+  box-shadow: 5px 5px 5px rgb(30, 30, 30);c
 } */
 
 header h2 {
@@ -32,8 +32,8 @@ header h2 {
 
 main {
   color: white;
-  margin-top: 2rem;
-  padding: 0 2rem;
+  max-height: 100dvh !important;
+  min-height: 91vh !important;
 }
 main ul {
   padding-left: 2rem;
