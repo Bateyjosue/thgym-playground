@@ -1,26 +1,15 @@
-import {useEffect, useState} from 'react';
-import {Link, useLocation, useParams} from 'react-router-dom'
-import {getVan} from '../../data/fetchData'
+import {Link, useLoaderData, useLocation} from 'react-router-dom'
+import {getVans} from '../../data/fetchData'
+
+export async function loader({params}){
+  return await getVans(params.id)
+}
 
 const VanDetails = () => {
-  const [vanDetails, setVanDetails] = useState({})
   const location = useLocation()
   const typeFilter = location.state?.type || 'all'
 
-    const {id} = useParams()
-    useEffect(()=> {
-      try {
-        (
-          async () => {
-            const vanDetails = await getVan(id)
-            setVanDetails(vanDetails.vans)
-          }
-        )()
-      }
-      catch(err) {
-        console.log(err)
-      }
-    }, [id])
+  const vanDetails = useLoaderData()
 
     const {name, description, imageUrl, price, type} = vanDetails
   return (

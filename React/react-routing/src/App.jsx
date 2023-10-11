@@ -3,7 +3,7 @@ import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import Vans, {loader as vansLoader} from "./pages/vans/Vans";
 import './data/server'
-import VanDetails from "./pages/vans/VanDetails";
+import VanDetails, {loader as vanLoader} from "./pages/vans/VanDetails";
 import Layout from "./components/layout/Layout";
 import Dashboard from "./pages/host/Dashboard";
 // import Income from "./pages/host/Income";
@@ -30,7 +30,12 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={vansLoader}
       errorElement={<Error />}
       />
-    <Route path="vans/:id" element={<VanDetails />} />
+    <Route 
+      path="vans/:id" 
+      element={<VanDetails />}
+      loader={vanLoader}
+      errorElement={<Error />}
+      />
     <Route 
       path="host" 
       element={<HostLayout />} 
