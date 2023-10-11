@@ -1,30 +1,17 @@
-// import React from 'react'
-import { useEffect, useState } from "react"
-import { NavLink, Link, Outlet, useParams } from "react-router-dom"
-import {getHostVan} from "../../data/fetchData"
+import { NavLink, Link, Outlet, useLoaderData } from "react-router-dom"
+import {getHostVans} from "../../data/fetchData"
+
+export async function loader({params}){
+  return  await getHostVans(params.id)
+}
 
 const activeStyles = {
   textDecoration: 'underline wavy',
 }
 
 const HostVan = () => {
-  const [van, setVan] = useState([])
-  const {id} = useParams()
+  const van = useLoaderData() || []
 
-
-  useEffect(() => {
-    try{
-      (
-        async() => {
-          const van = await getHostVan(id)
-          setVan(van.vans)
-        }
-      )()
-    }
-    catch(err){
-      console.log(err);
-    }
-  }, [id])
   const {name, imageUrl, type, price} = van
 
   if (!van) {
@@ -50,28 +37,25 @@ const HostVan = () => {
                   <h4>${price}/day</h4>
               </div>
           </div>
-      <nav className="host-van-detail-nav">
-      <NavLink
-        to="."
-        end
-        style={({ isActive }) => isActive ? activeStyles : null}
-    >
-        Details
-    </NavLink>
-    <NavLink
-        to="pricing"
-        style={({ isActive }) => isActive ? activeStyles : null}
-    >
-        Pricing
-    </NavLink>
-    <NavLink
-        to="photos"
-        style={({ isActive }) => isActive ? activeStyles : null}
-    >
-        Photos
-    </NavLink>
-      </nav>
-      <Outlet context={[van]}/>
+        <nav className="host-van-detail-nav">
+          <NavLink
+            to="."
+            end
+            style={({ isActive }) => isActive ? activeStyles : null}>
+              Details
+          </NavLink>
+          <NavLink
+            to="pricing"
+            style={({ isActive }) => isActive ? activeStyles : null}>
+              Pricing
+          </NavLink>
+          <NavLink
+            to="photos"
+            style={({ isActive }) => isActive ? activeStyles : null}>
+              Photos
+          </NavLink>
+        </nav>
+        <Outlet context={[van]}/>
       </div>
     </section>
   )

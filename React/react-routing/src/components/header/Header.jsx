@@ -33,6 +33,12 @@ const Header = () => {
                         style={({isActive})=> isActive ? navStyles : null}
                         to="/vans">Vans</NavLink>
                 </li>
+                <li>
+                <NavLink to="login" className="login-link">
+                    <span 
+                        className="material-symbols-outlined login-icon">account_circle</span>
+                </NavLink>
+                </li>
             </ul>
         </nav>
     </header>

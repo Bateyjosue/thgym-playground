@@ -3,8 +3,6 @@ import { Link, useLoaderData, useSearchParams } from 'react-router-dom'
 import { getVans } from '../../data/fetchData'
 
 export async function loader(){
-  // const  vans= await getVans()
-  console.log(await getVans())
   return await getVans()
 }
 
