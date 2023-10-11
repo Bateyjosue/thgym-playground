@@ -10,11 +10,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #131313;
+  /* background: #131313; */
 
 }
 
-header {
+/* header {
   background: #000;
   color:white;
 
@@ -24,7 +24,7 @@ header {
 
   padding: 1.5rem 2rem;
   box-shadow: 5px 5px 5px rgb(30, 30, 30);
-}
+} */
 
 header h2 {
   color: rgba(200, 171, 9, 0.862);
