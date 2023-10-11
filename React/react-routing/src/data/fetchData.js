@@ -12,11 +12,11 @@
 //     return data.vans
 // }
 
-export const getVan = async (id) => {
-const res = await fetch('/api/vans/' + id)
-    const data = await res.json()
-    return data
-}
+// export const getVan = async (id) => {
+// const res = await fetch('/api/vans/' + id)
+//     const data = await res.json()
+//     return data
+// }
 
 // export const getHostVans = async () => {
 //     const res = await fetch('/api/host/vans')
