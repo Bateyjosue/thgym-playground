@@ -1,14 +1,18 @@
 import { NavLink, useLoaderData } from "react-router-dom"
 import './host.css'
 import { getHostVans } from '../../data/fetchData'
+import { requireAuth } from "../../data/utils"
 
 export async function loader(){
-    return  await getHostVans()
+    const auth = await requireAuth()
+    if(auth != null) {
+        return requireAuth()
+    }
+    return getHostVans()
 }
 
 const HostVans = () => {
-  const vans = useLoaderData() || []
-  console.log(vans);
+  const vans = useLoaderData()
 
     const hostVansEls = vans.map(van => (
         <NavLink

@@ -1,8 +1,13 @@
 import { NavLink, Link, Outlet, useLoaderData } from "react-router-dom"
 import {getHostVans} from "../../data/fetchData"
+import { requireAuth } from "../../data/utils"
 
 export async function loader({params}){
-  return  await getHostVans(params.id)
+  const auth = await requireAuth()
+    if(auth != null) {
+        return requireAuth()
+    }
+  return getHostVans(params.id)
 }
 
 const activeStyles = {
