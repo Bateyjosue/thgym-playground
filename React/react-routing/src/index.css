@@ -32,3 +32,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+button:disabled {
+  cursor: not-allowed;
+  background: #aaa8a8;
+}
