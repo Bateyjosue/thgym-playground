@@ -22,17 +22,18 @@ const Login = () => {
     const message = useLoaderData();
     
 
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
         e.preventDefault()
-        setStatus('submitting')
+        setStatus("submitting")
         setError(null)
-        loginUser(loginFormData)
-        .then(data =>{
-            console.log(data.user);
-            navigate('/host')
-        })
-        .catch(err => setError(err))
-        .finally(() => setStatus('idle'))
+        try {
+            const data = await loginUser(loginFormData)
+            console.log(data)
+        } catch (err) {
+            setError(err)
+        } finally {
+            setStatus("idle")
+        }
     }
 
     const handleChange = (e) => {
