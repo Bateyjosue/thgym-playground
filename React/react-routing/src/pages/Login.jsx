@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import { useLoaderData } from 'react-router-dom';
+
+export function loader({request}){
+    return new URL(request.url).searchParams.get('message')
+}
 
 const Login = () => {
     const [loginFormData, setLoginFormData] = useState(
@@ -8,9 +13,11 @@ const Login = () => {
         }
     )
 
+    const message = useLoaderData();
+    
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(loginFormData);
     }
 
     const handleChange = (e) => {
@@ -23,6 +30,9 @@ const Login = () => {
 
   return (
     <div className='login-container'>
+       {
+            message && <h2 className="red text-red-500 font-semibold mt-2">{message}</h2>
+        }
         <h1 className='text-3xl my-4 mb-12 font-bold'>Sign in to your account</h1>
         <form onSubmit={handleSubmit} className='login-form'>
             <input
