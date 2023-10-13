@@ -1,4 +1,4 @@
-import { Form, redirect, useActionData } from 'react-router-dom';
+import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { loginUser } from '../data/fetchData';
 
 export function loader({request}){
@@ -25,6 +25,9 @@ export async function action({ request }){
 
 const Login = () => {
     const actionData = useActionData();
+    const navigation = useNavigation();
+
+    const status = navigation.state
 
   return (
     <div className='login-container'>
@@ -45,6 +48,7 @@ const Login = () => {
             />
             <button 
                 type='submit'
+                disabled={status === 'submitting'}
             >
                 {status === 'submitting' ? 'Logging in ...' : 'Log in'}
             </button>
