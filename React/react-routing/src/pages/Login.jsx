@@ -1,6 +1,5 @@
 import { Form, redirect, useActionData } from 'react-router-dom';
 import { loginUser } from '../data/fetchData';
-import { requireAuth } from '../data/utils';
 
 export function loader({request}){
     return new URL(request.url).searchParams.get('message')
@@ -33,7 +32,7 @@ const Login = () => {
         {
             actionData && <h3 className="red text-red-700 font-bold mb-4">{actionData.message}</h3>
         }
-        <Form  className='login-form' method='post'>
+        <Form  className='login-form' method='post' replace>
             <input
                 type='email'
                 name='email'
