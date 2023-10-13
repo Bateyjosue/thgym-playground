@@ -2,10 +2,10 @@ import { NavLink, Link, Outlet, useLoaderData } from "react-router-dom"
 import {getHostVans} from "../../data/fetchData"
 import { requireAuth } from "../../data/utils"
 
-export async function loader({params}){
-  const auth = await requireAuth()
+export async function loader({params, request}){
+  const auth = await requireAuth(request)
     if(auth != null) {
-        return requireAuth()
+        return requireAuth(request)
     }
   return getHostVans(params.id)
 }

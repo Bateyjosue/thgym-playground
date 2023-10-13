@@ -3,10 +3,10 @@ import './host.css'
 import { getHostVans } from '../../data/fetchData'
 import { requireAuth } from "../../data/utils"
 
-export async function loader(){
-    const auth = await requireAuth()
+export async function loader({request}){
+    const auth = await requireAuth(request)
     if(auth != null) {
-        return requireAuth()
+        return requireAuth(request)
     }
     return getHostVans()
 }
