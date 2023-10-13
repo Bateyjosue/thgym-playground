@@ -1,6 +1,7 @@
 // import React from 'react'
 import './Header.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+
 
 const navStyles = {
     fontWeight: 'bold',
@@ -10,6 +11,11 @@ const navStyles = {
 }
 
 const Header = () => {
+    const navigate = useNavigate()
+    const handleLogout = () =>{
+        localStorage.removeItem('loggedin')
+        navigate('/login')
+    }
   return (
     <header className='h-20 bg-yellow-950 text-white container mx-auto px-8 flex justify-between items-center min-w-full'>
         <h1 className='text-2xl font-bold'>
@@ -34,10 +40,14 @@ const Header = () => {
                         to="/vans">Vans</NavLink>
                 </li>
                 <li>
-                <NavLink to="login" className="login-link">
-                    <span 
-                        className="material-symbols-outlined login-icon">account_circle</span>
-                </NavLink>
+                    <NavLink to="login" className="login-link">
+                        <span className="material-symbols-outlined login-icon">
+                            account_circle
+                        </span>
+                    </NavLink>
+                </li>
+                <li>
+                    <button onClick={handleLogout}>Logout</button>
                 </li>
             </ul>
         </nav>

@@ -28,6 +28,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<Login />} 
       loader={loginLoader}
       action={LoginAction}
+      errorElement={<Error />}
       />
     <Route 
       path="vans" 
@@ -45,6 +46,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       path="host" 
       element={<HostLayout />}
       loader={async () => await requireAuth()} 
+      errorElement={<Error />}
       >
         <Route 
           index 
@@ -61,11 +63,9 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route 
           path="vans" 
           element={<HostVans />}
-          loader={hostVansLoader} 
+          loader={hostVansLoader}
+          errorElement={<Error />} 
           />
-
-
-
         <Route 
           path="vans/:id" 
           element={<HostVan />}

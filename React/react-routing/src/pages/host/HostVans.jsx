@@ -12,7 +12,7 @@ export async function loader(){
 }
 
 const HostVans = () => {
-  const vans = useLoaderData()
+  const vans = useLoaderData() || []
 
     const hostVansEls = vans.map(van => (
         <NavLink
@@ -34,15 +34,9 @@ const HostVans = () => {
         <section>
             <h1 className="host-vans-title">Your listed vans</h1>
             <div className="host-vans-list">
-                {
-                    vans.length > 0 ? (
-                        <section>
-                            {hostVansEls}
-                        </section>
-                    ) : (
-                            <h2>Loading...</h2>
-                        )
-                }
+                <section>
+                    {hostVansEls}
+                </section>
             </div>
         </section>
     )
