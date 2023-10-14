@@ -10,7 +10,7 @@ export async function action({ request }){
     const email = formData.get("email")
     const password = formData.get("password")
     
-    const pathname = new URL(request.url).searchParams.get('redirectTo') || '/host'
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/vans";
     console.log(pathname);
     try{
         const data = await loginUser({ email, password })
@@ -23,7 +23,7 @@ export async function action({ request }){
     }catch(err){
         return err
     }
-    return null
+
 }
 
 const Login = () => {

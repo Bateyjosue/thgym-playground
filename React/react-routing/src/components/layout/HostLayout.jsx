@@ -7,6 +7,12 @@ const navStyles = {
   color: 'white',
 }
 
+export function loader({request}){
+  const url = new URL(request.url)
+  console.log(url.pathname);
+  return null
+} 
+
 const HostLayout = () => {
   return (
     <>
