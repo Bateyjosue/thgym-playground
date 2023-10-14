@@ -4,10 +4,11 @@ import { getHostVans } from '../../data/fetchData'
 import { requireAuth } from "../../data/utils"
 
 export async function loader({request}){
-    const auth = await requireAuth(request)
-    if(auth != null) {
-        return requireAuth(request)
-    }
+    // const auth = await requireAuth(request)
+    // if(auth != null) {
+    //     return requireAuth(request)
+    // }
+    requireAuth(request)
     return getHostVans()
 }
 

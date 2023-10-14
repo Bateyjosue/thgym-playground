@@ -1,6 +1,6 @@
 // import React from 'react'
 import './Header.css'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 
 const navStyles = {
@@ -12,9 +12,12 @@ const navStyles = {
 
 const Header = () => {
     const navigate = useNavigate()
+    const location = useLocation().pathname
+
     const handleLogout = () =>{
+
         localStorage.removeItem('loggedin')
-        navigate('/login')
+        navigate(`/login?message=You must login first!&redirectTo=${location}`, {replace: true})
     }
   return (
     <header className='h-20 bg-yellow-950 text-white container mx-auto px-8 flex justify-between items-center min-w-full'>

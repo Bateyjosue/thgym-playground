@@ -10,8 +10,7 @@ export async function action({ request }){
     const email = formData.get("email")
     const password = formData.get("password")
     
-    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/vans";
-    console.log(pathname);
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host";
     try{
         const data = await loginUser({ email, password })
         if(data.user){
