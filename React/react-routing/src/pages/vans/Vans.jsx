@@ -1,19 +1,21 @@
 import './van.css'
-import { Link, useLoaderData, useSearchParams } from 'react-router-dom'
+import { Link, useLoaderData, useSearchParams, defer, Await } from 'react-router-dom'
 import { getVans } from '../../data/fetchData'
+import { Suspense } from 'react'
 
 export async function loader(){
-  return await getVans()
+  const vansData = getVans()
+  return defer(
+    {
+      vans: vansData
+    }
+  )
 }
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams()
-  const vans = useLoaderData()
   const typeFilter = searchParams.get("type")
-
-  const filterVans = typeFilter 
-      ? vans.filter(van => van.type === typeFilter) 
-      : vans
+  const vans = useLoaderData()
 
   return (
     <>
@@ -43,25 +45,36 @@ const Vans = () => {
         </div>
         <section className='van-list-container'>
           <ul className='van-list'>
-            {
-              filterVans.map(van => (
-                <li key={van.id} className="van-tile">
-                  <Link to={van.id}
-                    state={{
-                      search: searchParams.toString(),
-                      type: typeFilter
-                    }}
-                    >
-                    <img src={van.imageUrl} alt="Van Avatar" />
-                    <div className="van-info mb-2">
-                      <h3 className='font-bold'>{van.name}</h3>
-                      <p>${van.price}<span>/day</span></p>
-                    </div>
-                    <i className={`van-type ${van.type} selected`}>{van.type}</i>
-                  </Link>
-                </li>
-              ))
-            }
+            <Suspense fallback={<h1 className='text-5xl font-bold'>Loading...</h1>}>
+              <Await resolve={vans.vans}>
+                {
+                  (loadVans)=> {
+                    const filterVans = typeFilter 
+                      ? loadVans.filter(van => van.type === typeFilter) 
+                      : loadVans
+                    return (
+                      filterVans.map(van => (
+                        <li key={van.id} className="van-tile">
+                          <Link to={van.id}
+                            state={{
+                              search: searchParams.toString(),
+                              type: typeFilter
+                            }}
+                            >
+                            <img src={van.imageUrl} alt="Van Avatar" />
+                            <div className="van-info mb-2">
+                              <h3 className='font-bold'>{van.name}</h3>
+                              <p>${van.price}<span>/day</span></p>
+                            </div>
+                            <i className={`van-type ${van.type} selected`}>{van.type}</i>
+                          </Link>
+                        </li>
+                      ))
+                    )
+                  }
+                }
+              </Await>
+            </Suspense>
           </ul>
         </section>
       </main>
