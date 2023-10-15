@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React from 'react';
 
 interface AnimalProps {
@@ -7,8 +8,8 @@ interface AnimalProps {
 const Animal: React.FC<AnimalProps> = ({animals}) => {
   return (
     <div>
-      {animals.map((animal, index) => (
-        <li key={index}>{animal}</li>
+      {animals.map((animal) => (
+        <li key={nanoid()}>{animal}</li>
       ))}
     </div>
   );
