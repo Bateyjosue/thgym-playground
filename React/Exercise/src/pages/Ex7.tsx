@@ -1,15 +1,22 @@
 import { useState } from 'react';
 import Header from '../components/Header'
 
+interface User {
+    firstName: string;
+    lastName: string;
+}
+
+
+
 const BuildingForm = () => {
    
-    const [UserInfo, setUserInfo ] = useState({
+    const [UserInfo, setUserInfo ] = useState<User>({
         firstName: '',
         lastName: '',
     })
 
     const handleChange =(e: React.ChangeEvent) => {
-        const {name, value} = (e.target as HTMLInputElement)
+        const {name, value} = e.target
         e.preventDefault();
         setUserInfo((prevUserInfo) => {
             return {
