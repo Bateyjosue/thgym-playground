@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { Questions } from '../data/data'
-const Exercise = (exercise: Questions) => {
-    const {link, title, description} = exercise
+const Exercise = ({link, title, description}: Questions) => {
   return (
     <>
         <article className="p-1 border rounded-xl">
