@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from '../components/Header'
 
+// Component for Exercise 3
+
 const UserCLicks = () => {
     const handleClick = (e: { preventDefault: () => void; }) => {
         e.preventDefault();

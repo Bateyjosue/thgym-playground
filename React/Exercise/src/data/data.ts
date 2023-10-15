@@ -38,17 +38,54 @@ interface Ref {
       ]
     },
     {
-      link: 'user_clicks',
-      title: 'Exercise 2: Capturing User Clicks',
-      description: 'This exercise gets you started with event handling',
-      ref: [
-        {
-          name: 'How to center a text inside a div', 
-          url:'https://www.w3schools.com/css/css_align.asp', 
-        },
-        
+      link: 'custom_component',
+      title: 'Exercise 3: Custom Component',
+      description: 'In this exercise, build your own Button component and render it three times',
+      ref: [      
       ]
-    }
+    },
+    {
+      link: 'state_props',
+      title: 'Exercise 4: State and Props',
+      description: 'The number must increment each time the button is clicked',
+      ref: [      
+      ]
+    },
+    {
+      link: 'map_list',
+      title: 'Exercise 5: Mapping Through A List And Rendering',
+      description: 'Use the map function to render them in an unordered list',
+      ref: [      
+      ]
+    },
+    {
+      link: 'map_list_component',
+      title: 'Exercise 6: Mapping Through A List And Rendering using Component',
+      description: 'you\'ll create a custom component that displays each item from exercise 5',
+      ref: [      
+      ]
+    },
+    {
+      link: 'building_form',
+      title: 'Exercise 7: Building A Form',
+      description: 'Unleash some more power from React by building a form',
+      ref: [      
+      ]
+    },
+    {
+      link: 'rendering_json',
+      title: 'Exercise 8: Rendering JSON',
+      description: 'JSON stands for JavaScript Object Notation, a type of format for data interchange.',
+      ref: [      
+      ]
+    },
+    {
+      link: 'working_API',
+      title: 'Exercise 9: Working with an API',
+      description: 'work with an API and build a simple frontend',
+      ref: [      
+      ]
+    },
   ]
 
   export default questions;
