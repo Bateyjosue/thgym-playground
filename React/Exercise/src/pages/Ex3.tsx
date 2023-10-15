@@ -3,7 +3,7 @@ import Button from '../components/Button'
 import Header from '../components/Header'
 
 const Custom_Component = () => {
-    const handleClick = (e:  React.ChangeEvent) => {
+    const handleClick = (e:  React.ChangeEvent):void=> {
         e.preventDefault();
         alert(`You have clicked on ${(e.target as HTMLInputElement).textContent}`)
     }
@@ -14,7 +14,7 @@ const Custom_Component = () => {
             <section className='mt-10 flex gap-4 justify-center'>
                 {
                     Array.from({length: 3}, (_, i) => (
-                        <Button key={i} name={`Button ${i+1}`} onClick={handleClick}/>
+                        <Button key={i} name={`Button ${i+1}`} handleClick={handleClick}/>
                     ))
                 }
             </section>
