@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Header from '../components/Header'
+import { nanoid } from 'nanoid'
 
 const animals = ['dog', 'cat', 'chicken', 'cow', 'sheep', 'horse']
 const MapList = () => {
@@ -11,8 +12,8 @@ const MapList = () => {
             <section className='mt-10'>
                 <ul className='list-disc mx-8 marker:text-yellow-500 text-xl'>
                     {
-                        animals.map((animal, index)=>(
-                            <li key={index}>
+                        animals.map((animal)=>(
+                            <li key={nanoid()}>
                                 {animal}
                             </li>
                         ))
