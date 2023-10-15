@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Button from '../components/Button'
 import Header from '../components/Header'
 
 const Custom_Component = () => {
-    const handleClick = ()=> {
-        alert('You have clicked on ' + event.target['textContent']);
+    const handleClick = (event: React.MouseEvent)=> {
+        const target = event.target as HTMLInputElement
+        alert(`You have clicked on ${target.textContent}`);
     }
   return (
     <>
