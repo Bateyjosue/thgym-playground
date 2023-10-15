@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { ChangeEvent, FC, MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from "react";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 interface Props{

@@ -3,9 +3,8 @@ import Button from '../components/Button'
 import Header from '../components/Header'
 
 const Custom_Component = () => {
-    const handleClick = (e:  React.ChangeEvent):void=> {
-        e.preventDefault();
-        alert(`You have clicked on ${(e.target as HTMLInputElement).textContent}`)
+    const handleClick = ()=> {
+        alert('You have clicked on ' + event.target['textContent']);
     }
   return (
     <>

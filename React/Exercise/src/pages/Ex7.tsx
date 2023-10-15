@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from 'react';
 import Header from '../components/Header'
 
@@ -15,13 +16,13 @@ const BuildingForm = () => {
         lastName: '',
     })
 
-    const handleChange =(e: React.ChangeEvent) => {
-        const {name, value} = e.target
+    const handleChange =(e: { preventDefault: () => void; target: { name: string; value: string; }; }) => {
+        // const {name, value} = e.target
         e.preventDefault();
         setUserInfo((prevUserInfo) => {
             return {
                 ...prevUserInfo,
-                [name]: value
+                [e.target.name]: e.target.value
             }
         })
     }
