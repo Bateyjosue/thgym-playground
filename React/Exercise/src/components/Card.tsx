@@ -29,7 +29,7 @@ export interface User  {
     uid: string;
 }
 
-const Card = ({first_name, last_name, avatar, employment, address}) => {
+const Card = ({first_name, last_name, avatar, employment, address}:User) => {
   return (
     <li className='flip-card border rounded-lg p-2'>
         <div className='flip-card-inner card '>
